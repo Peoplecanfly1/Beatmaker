@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BeatMaker</title>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="setup">
+        <button class="play">Play</button>
+        <div class="tempo">
+          <input
+            type="range"
+            class="tempo-slider"
+            max="300"
+            min="20"
+            value="150"
+          />
+          <p>Tempo: <span class="tempo-nr">150</span></p>
+        </div>
+      </div>
+      <div class="sequencer">
+        <h1>GRID</h1>
+        <!-- kick-->
+        <div class="track kick-track">
+          <div class="controls">
+            <button data-track="0" class="mute kick-volume">
+              <i class="fas fa-volume-up"></i>
+            </button>
+            <select name="kick" id="kick-select">
+              <option value="./allSounds/kick-classic.wav">Kick</option>
+              <option value="./allSounds/kick-808.wav">808 Kick</option>
+              <option value="./allSounds/kick-heavy.wav">Heavy Kick</option>
+            </select>
+          </div>
+          <div class="kick">
+            <div class="pad kick-pad" id="b0"></div>
+            <div class="pad kick-pad" id="b1"></div>
+            <div class="pad kick-pad" id="b2"></div>
+            <div class="pad kick-pad" id="b3"></div>
+            <div class="pad kick-pad" id="b4"></div>
+            <div class="pad kick-pad" id="b5"></div>
+            <div class="pad kick-pad" id="b6"></div>
+            <div class="pad kick-pad" id="b7"></div>
+          </div>
+        </div>
+        <!-- snare-->
+        <div class="track snare-track">
+          <div class="controls">
+            <button data-track="1" class="mute snare-volume">
+              <i class="fas fa-volume-up"></i>
+            </button>
+            <select name="snare" id="snare-select">
+              <option value="./allSounds/snare-acoustic01.wav">Snare</option>
+              <option value="./allSounds/snare-808.wav">808 Snare</option>
+              <option value="./allSounds/snare-vinyl02.wav">Snary Vinyl</option>
+            </select>
+          </div>
+          <div class="snare">
+            <div class="pad snare-pad" id="b0"></div>
+            <div class="pad snare-pad" id="b1"></div>
+            <div class="pad snare-pad" id="b2"></div>
+            <div class="pad snare-pad" id="b3"></div>
+            <div class="pad snare-pad" id="b4"></div>
+            <div class="pad snare-pad" id="b5"></div>
+            <div class="pad snare-pad" id="b6"></div>
+            <div class="pad snare-pad" id="b7"></div>
+          </div>
+        </div>
+        <!-- hihat-->
+        <div class="track hihat-track">
+          <div class="controls">
+            <button data-track="2" class="mute hihat-volume">
+              <i class="fas fa-volume-up"></i>
+            </button>
+            <select name="hihat" id="hihat-select">
+              <option value="./allSounds/hihat-acoustic01.wav">Hihat</option>
+              <option value="./allSounds/hihat-808.wav">808 Hihat</option>
+              <option value="./allSounds/hihat-digital.wav">
+                Hihat Digital
+              </option>
+            </select>
+          </div>
+          <div class="hithat">
+            <div class="pad hithat-pad" id="b0"></div>
+            <div class="pad hithat-pad" id="b1"></div>
+            <div class="pad hithat-pad" id="b2"></div>
+            <div class="pad hithat-pad" id="b3"></div>
+            <div class="pad hithat-pad" id="b4"></div>
+            <div class="pad hithat-pad" id="b5"></div>
+            <div class="pad hithat-pad" id="b6"></div>
+            <div class="pad hithat-pad" id="b7"></div>
+          </div>
+        </div>
+      </div>
+      <div class="piano">
+        <div class="set">
+          <div data-keyCode="68" class="p-button white">D</div>
+          <div  class="p-button black"></div>
+          <div data-keyCode="70" class="p-button white">F</div>
+          <div class="p-button black"></div>
+          <div data-keyCode="71" class="p-button white">G</div>
+          <div class="p-button black"></div>
+          <div data-keyCode="72" class="p-button white">H</div>
+          <div data-keyCode="74" class="p-button white">J</div>
+          <div class="p-button black"></div>
+          <div data-keyCode="75" class="p-button white">K</div>
+          <div class="p-button black"></div>
+          <div data-keyCode="76" class="p-button white">L</div>
+        </div>
+      </div>
+    </div>
+
+    <audio class="kick-sound" src="./allSounds/kick-classic.wav"></audio>
+    <audio class="snare-sound" src="./allSounds/snare-acoustic01.wav"></audio>
+    <audio class="hithat-sound" src="./allSounds/hihat-acoustic01.wav"></audio>
+    <!-- piano -->
+    <audio
+      data-keyCode="68"
+      class="piano-sound"
+      src="./allSounds/nota-do.mp3"
+    ></audio>
+    <audio
+      data-keyCode="70"
+      class="piano-sound"
+      src="./allSounds/nota-re.mp3"
+    ></audio>
+    <audio
+      data-keyCode="71"
+      class="piano-sound"
+      src="./allSounds/nota-mi.mp3"
+    ></audio>
+    <audio
+      data-keyCode="72"
+      class="piano-sound"
+      src="./allSounds/nota-fa.mp3"
+    ></audio>
+    <audio
+      data-keyCode="74"
+      class="piano-sound"
+      src="./allSounds/nota-soli.mp3"
+    ></audio>
+    <audio
+      data-keyCode="75"
+      class="piano-sound"
+      src="./allSounds/nota-lya.mp3"
+    ></audio>
+    <audio
+      data-keyCode="76"
+      class="piano-sound"
+      src="./allSounds/nota-si.mp3"
+    ></audio>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <script src="./app.js"></script>
+  </body>
+</html>

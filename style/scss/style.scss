@@ -1,0 +1,272 @@
+@import 'var';
+@import 'mixin';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+    @include flex();
+    background-color: $back;
+    color: $white;
+    font-family: sans-serif;
+    font-weight: 300;
+}
+
+i,svg{
+    pointer-events: none;
+}
+
+
+.wrapper{
+    @include flex($j-c:space-around);
+    flex-wrap: wrap;
+    width: 1130px; 
+    margin:5rem auto;
+    position:relative;
+    border:1px solid #160801;
+    border-radius:1em;
+    background:linear-gradient(to bottom right,rgba(0,0,0,0.3),rgba(0,0,0,0)),url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/187/vwood.png);
+    box-shadow:0 0 50px rgba(0,0,0,0.5) inset,0 1px rgba(212,152,125,0.2) inset,0 5px 15px rgba(0,0,0,0.5);
+
+    .sequencer {
+        @include flex($j-c:space-between, $direction:column, );
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            margin: 0rem 2rem;
+
+            button {
+                padding: 1em;
+                border: none;
+                background-color: $grey;
+                color: white;
+                font-size: 1em;
+                cursor: pointer;
+                transition: all 1s ease;
+                width: 50px;
+                border-right: 2px solid black;
+                box-shadow: 5px 5px 6px 0px rgba(83, 88, 92, 0.5);
+                border-radius: 5px 0px 0px 5px;
+
+                &:hover {
+                    background-color: rgb(182, 182, 182);
+                }
+            }
+
+        }
+
+        .pad {
+            width: 4rem;
+            height: 4rem;
+            margin: 1rem 0.5rem;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            box-shadow: 5px 5px 6px 0px rgba(83, 88, 92, 0.5);
+            background: linear-gradient(135deg, rgb(88, 88, 88) 60%, rgb(116, 115, 115) 100%);
+            border-radius: 5px;
+        }
+
+        .track {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 1rem;
+        }
+
+        .kick,
+        .snare,
+        .hithat {
+            display: flex;
+        }
+
+
+
+        .kick-pad {
+            &.active {
+                background: linear-gradient(135deg, rgba(255, 155, 84, 1) 67%, rgba(255, 209, 178, 1) 100%);
+            }
+        }
+
+        .snare-pad {
+            &.active {
+                background: linear-gradient(135deg, rgba(223, 41, 53, 1) 67%, rgba(221, 117, 122, 1) 100%);
+            }
+        }
+
+        .hithat-pad {
+            &.active {
+                background: linear-gradient(135deg, rgb(45, 221, 2) 67%, rgb(110, 230, 80) 100%);
+                
+            }
+        }
+
+        select {
+            padding: 1.01em;
+            font-size: 1em;
+            appearance: none;
+            color: $white;
+            background-color: $grey;
+            transition: 0.3s all ease;
+            cursor: pointer;
+            border: none;
+            min-width: 120px;
+            box-shadow: 5px 5px 6px 0px rgba(83, 88, 92, 0.5);
+            border-radius: 0px 5px 5px 0px;
+
+            &:focus {
+                outline: none;
+            }
+
+            &:hover {
+                background-color: $light-grey;
+            }
+        }
+
+    }
+
+    .setup{
+        @include flex($direction: column,);
+        min-width:  222px;
+        .play {
+            padding: 1rem 4rem;
+            font-size: 1.5rem;
+            background-color: #088322;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+           
+            &.active{
+                background-color: #FF3562;
+            }
+        }
+
+        .tempo {
+            margin: 1rem;
+            width: 100%;
+
+            p {
+                text-align: center;
+                font-size: 1.5rem;
+                margin: 2rem;
+            }
+
+            &-slider {
+                padding: 0.2rem;
+                appearance: none;
+                margin: 1rem 1.1rem;
+                width: 80%;
+                position: relative;
+                background-color: rgb(88, 88, 88);
+                cursor: pointer;
+                border-radius: 1rem;
+            }
+
+
+        }
+    }
+
+    .piano{
+        margin-left: 200px;
+        height: 300px;
+
+        .set{
+            @include flex($align: flex-start);
+
+            .p-button{
+                display: flex;
+                align-items: flex-end;
+                padding-left: 5px;
+                transition: 0.1s all ease;
+            }
+
+            .p-button:nth-child(8){
+                 margin-left: 0rem;
+            }
+
+        }
+
+        .white {
+            height: 16em;
+            width: 6em;
+            z-index: 1;
+            margin-left: -1.5rem;
+            border-left: 1px solid #bbb;
+            border-bottom: 1px solid #bbb;
+            border-radius: 0 0 5px 5px;
+            box-shadow: -1px 0 0 rgba(255, 255, 255, 0.8) inset, 0 0 5px #ccc inset, 0 0 3px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(to bottom, #eee 0%, #fff 100%);
+            position: relative;
+            color: black;
+            &:first-child{
+                margin-left: 0rem;
+            }
+            
+        
+
+            &.active {
+                border-top: 1px solid #777;
+                border-left: 1px solid #999;
+                border-bottom: 1px solid #999;
+                box-shadow: 2px 0 3px rgba(0, 0, 0, 0.1) inset, -5px 5px 20px rgba(0, 0, 0, 0.2) inset, 0 0 3px rgba(0, 0, 0, 0.2);
+                background: linear-gradient(to bottom, #fff 0%, #e9e9e9 100%)
+            }
+        }
+
+        
+
+        .black {
+            height: 8em;
+            width: 3em;
+            margin: 0 0 0 -1.5em;
+            z-index: 2;
+            border: 1px solid #000;
+            border-radius: 0 0 3px 3px;
+            box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 0 -5px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 2px 4px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(45deg, #222 0%, #555 100%);
+
+            &.active {
+                box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 0 -2px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 1px 2px rgba(0, 0, 0, 0.5);
+                background: linear-gradient(to right, #444 0%, #222 100%)
+            }
+        }
+
+        
+
+        // .a,
+        // .g,
+        // .f,
+        // .d,
+        // .c {
+        //     margin: 0 0 0 -1.5em
+        // }
+
+        // ul li:first-child {
+        //     border-radius: 5px 0 5px 5px
+        // }
+
+        // ul li:last-child {
+        //     border-radius: 0 5px 5px 5px
+        // }
+
+    }
+
+}
+
+
+
+
+@keyframes playTrack {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.2);
+    }
+}
+

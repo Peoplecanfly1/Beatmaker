@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #31AFD4;
+  color: white;
+  font-family: sans-serif;
+  font-weight: 300;
+}
+
+i, svg {
+  pointer-events: none;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1130px;
+  margin: 5rem auto;
+  position: relative;
+  border: 1px solid #160801;
+  border-radius: 1em;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/187/vwood.png);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5) inset, 0 1px rgba(212, 152, 125, 0.2) inset, 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.wrapper .sequencer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper .sequencer .controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  margin: 0rem 2rem;
+}
+
+.wrapper .sequencer .controls button {
+  padding: 1em;
+  border: none;
+  background-color: #585858;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 1s ease;
+  width: 50px;
+  border-right: 2px solid black;
+  box-shadow: 5px 5px 6px 0px rgba(83, 88, 92, 0.5);
+  border-radius: 5px 0px 0px 5px;
+}
+
+.wrapper .sequencer .controls button:hover {
+  background-color: #b6b6b6;
+}
+
+.wrapper .sequencer .pad {
+  width: 4rem;
+  height: 4rem;
+  margin: 1rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  box-shadow: 5px 5px 6px 0px rgba(83, 88, 92, 0.5);
+  background: linear-gradient(135deg, #585858 60%, #747373 100%);
+  border-radius: 5px;
+}
+
+.wrapper .sequencer .track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+.wrapper .sequencer .kick,
+.wrapper .sequencer .snare,
+.wrapper .sequencer .hithat {
+  display: flex;
+}
+
+.wrapper .sequencer .kick-pad.active {
+  background: linear-gradient(135deg, #ff9b54 67%, #ffd1b2 100%);
+}
+
+.wrapper .sequencer .snare-pad.active {
+  background: linear-gradient(135deg, #df2935 67%, #dd757a 100%);
+}
+
+.wrapper .sequencer .hithat-pad.active {
+  background: linear-gradient(135deg, #2ddd02 67%, #6ee650 100%);
+}
+
+.wrapper .sequencer select {
+  padding: 1.01em;
+  font-size: 1em;
+  appearance: none;
+  color: white;
+  background-color: #585858;
+  transition: 0.3s all ease;
+  cursor: pointer;
+  border: none;
+  min-width: 120px;
+  box-shadow: 5px 5px 6px 0px rgba(83, 88, 92, 0.5);
+  border-radius: 0px 5px 5px 0px;
+}
+
+.wrapper .sequencer select:focus {
+  outline: none;
+}
+
+.wrapper .sequencer select:hover {
+  background-color: #b6b6b6;
+}
+
+.wrapper .setup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 222px;
+}
+
+.wrapper .setup .play {
+  padding: 1rem 4rem;
+  font-size: 1.5rem;
+  background-color: #088322;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.wrapper .setup .play.active {
+  background-color: #FF3562;
+}
+
+.wrapper .setup .tempo {
+  margin: 1rem;
+  width: 100%;
+}
+
+.wrapper .setup .tempo p {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 2rem;
+}
+
+.wrapper .setup .tempo-slider {
+  padding: 0.2rem;
+  appearance: none;
+  margin: 1rem 1.1rem;
+  width: 80%;
+  position: relative;
+  background-color: #585858;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+.wrapper .piano {
+  margin-left: 200px;
+  height: 300px;
+}
+
+.wrapper .piano .set {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.wrapper .piano .set .p-button {
+  display: flex;
+  align-items: flex-end;
+  padding-left: 5px;
+  transition: 0.1s all ease;
+}
+
+.wrapper .piano .set .p-button:nth-child(8) {
+  margin-left: 0rem;
+}
+
+.wrapper .piano .white {
+  height: 16em;
+  width: 6em;
+  z-index: 1;
+  margin-left: -1.5rem;
+  border-left: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  border-radius: 0 0 5px 5px;
+  box-shadow: -1px 0 0 rgba(255, 255, 255, 0.8) inset, 0 0 5px #ccc inset, 0 0 3px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to bottom, #eee 0%, #fff 100%);
+  position: relative;
+  color: black;
+}
+
+.wrapper .piano .white:first-child {
+  margin-left: 0rem;
+}
+
+.wrapper .piano .white.active {
+  border-top: 1px solid #777;
+  border-left: 1px solid #999;
+  border-bottom: 1px solid #999;
+  box-shadow: 2px 0 3px rgba(0, 0, 0, 0.1) inset, -5px 5px 20px rgba(0, 0, 0, 0.2) inset, 0 0 3px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to bottom, #fff 0%, #e9e9e9 100%);
+}
+
+.wrapper .piano .black {
+  height: 8em;
+  width: 3em;
+  margin: 0 0 0 -1.5em;
+  z-index: 2;
+  border: 1px solid #000;
+  border-radius: 0 0 3px 3px;
+  box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 0 -5px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(45deg, #222 0%, #555 100%);
+}
+
+.wrapper .piano .black.active {
+  box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 0 -2px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 1px 2px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to right, #444 0%, #222 100%);
+}
+
+@keyframes playTrack {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+/*# sourceMappingURL=style.css.map */
